@@ -30,11 +30,9 @@ public class FileCopyTest {
 
         try {
             // 实例化文件流对象
-            originalFileInputStream =
-                    new FileInputStream(originalUrl);
+            originalFileInputStream = new FileInputStream(originalUrl);
 
-            targetFileOutputStream =
-                    new FileOutputStream(targetUrl);
+            targetFileOutputStream = new FileOutputStream(targetUrl);
 
             // 读取的字节信息
             int content;

@@ -11,11 +11,9 @@ public class FileServiceTest {
         FileService fileService = new FileService();
 
         // TODO 此处替换为本地文件的地址全路径
-        String filePath = "";
+        String filePath = "c://sss/sss";
 
         // 通过lambda表达式，打印文件内容
-        fileService.fileHandle(filePath,
-
-                System.out::println);
+        fileService.fileHandle(filePath, System.out::println);
     }
 }

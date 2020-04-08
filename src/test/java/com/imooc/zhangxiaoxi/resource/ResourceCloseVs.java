@@ -14,19 +14,16 @@ import java.io.InputStreamReader;
 public class ResourceCloseVs {
 
     @Test
-    public void newFileHandle(String url,
-                              FileConsumer fileConsumer) {
+    public void newFileHandle(String url, FileConsumer fileConsumer) {
         try (
-                // 声明、创建文件的读取流
-                FileInputStream fileInputStream =
-                        new FileInputStream(url);
+            //初始化一个或多个资源，此处的资源指得是那些必须在程序结束时必须关闭的资源
+            // 声明、创建文件的读取流
+            FileInputStream fileInputStream = new FileInputStream(url);
 
-                InputStreamReader inputStreamReader =
-                        new InputStreamReader(fileInputStream);
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
 
-                BufferedReader bufferedReader =
-                        new BufferedReader(inputStreamReader);
-        ) {
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+         ) {
 
             // 定义行变量和内容sb
             String line;
@@ -36,10 +33,8 @@ public class ResourceCloseVs {
             while ((line = bufferedReader.readLine()) != null) {
                 stringBuilder.append(line + "\n");
             }
-
             // 调用函数式接口方法，将文件内容传递给lambda表达式，实现业务逻辑
             fileConsumer.fileHandler(stringBuilder.toString());
-
         } catch (IOException e) {
             e.printStackTrace();
         }
