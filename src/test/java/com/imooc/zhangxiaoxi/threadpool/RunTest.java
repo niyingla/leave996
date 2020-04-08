@@ -35,8 +35,7 @@ public class RunTest {
     @Test
     public void executeTest() throws InterruptedException {
         // 创建线程池
-        ExecutorService threadPool =
-                Executors.newCachedThreadPool();
+        ExecutorService threadPool = Executors.newCachedThreadPool();
 
         /**
          * 利用execute方法提交任务，没有返回结果

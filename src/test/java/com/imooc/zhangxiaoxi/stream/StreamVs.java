@@ -103,8 +103,7 @@ public class StreamVs {
      */
     @Test
     public void newCartHandle() {
-        AtomicReference<Double> money =
-                new AtomicReference<>(Double.valueOf(0.0));
+        AtomicReference<Double> money = new AtomicReference<>(Double.valueOf(0.0));
 
         List<String> resultSkuNameList =
                 CartService.getCartSkuList()
@@ -112,18 +111,15 @@ public class StreamVs {
                 /**
                  * 1 打印商品信息
                  */
-                .peek(sku -> System.out.println(
-                        JSON.toJSONString(sku, true)))
+                .peek(sku -> System.out.println(JSON.toJSONString(sku, true)))
                 /**
                  * 2 过滤掉所有图书类商品
                  */
-                .filter(sku -> !SkuCategoryEnum.BOOKS.equals(
-                        sku.getSkuCategory()))
+                .filter(sku -> !SkuCategoryEnum.BOOKS.equals(sku.getSkuCategory()))
                 /**
                  * 排序
                  */
-                .sorted(Comparator.
-                        comparing(Sku::getTotalPrice).reversed())
+                .sorted(Comparator.comparing(Sku::getTotalPrice).reversed())
                 /**
                  * TOP2
                  */
@@ -148,8 +144,7 @@ public class StreamVs {
         /**
          * 打印输入结果
          */
-        System.out.println(
-                JSON.toJSONString(resultSkuNameList, true));
+        System.out.println(JSON.toJSONString(resultSkuNameList, true));
         System.out.println("商品总价：" + money.get());
     }
 
