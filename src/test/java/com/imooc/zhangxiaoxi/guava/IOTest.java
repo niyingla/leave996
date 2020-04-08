@@ -20,12 +20,8 @@ public class IOTest {
         /**
          * 创建对应的Source和Sink
          */
-        CharSource charSource = Files.asCharSource(
-                new File("SourceText.txt"),
-                Charsets.UTF_8);
-        CharSink charSink = Files.asCharSink(
-                new File("TargetText.txt"),
-                Charsets.UTF_8);
+        CharSource charSource = Files.asCharSource(new File("SourceText.txt"), Charsets.UTF_8);
+        CharSink charSink = Files.asCharSink(new File("TargetText.txt"), Charsets.UTF_8);
 
         /**
          * 拷贝
