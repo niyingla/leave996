@@ -14,10 +14,8 @@ public class CleanupTest {
     public void copyFile(String in, String out)
             throws Exception {
 
-        @Cleanup FileInputStream fileInputStream =
-                new FileInputStream(in);
-        @Cleanup FileOutputStream fileOutputStream =
-                new FileOutputStream(out);
+        @Cleanup FileInputStream fileInputStream = new FileInputStream(in);
+        @Cleanup FileOutputStream fileOutputStream = new FileOutputStream(out);
 
         int r;
 
