@@ -24,7 +24,8 @@ public class ValTest {
         val field = "zhangxiaoxi";
 
         val list = new ArrayList<String>();
-        list.add("zhangxiaoxi");
+        list.add("zhangxiaoxi2");
+        list.add(field);
         System.out.println(list);
     }
 
