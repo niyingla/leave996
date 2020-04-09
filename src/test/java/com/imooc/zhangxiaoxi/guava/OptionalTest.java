@@ -18,7 +18,7 @@ public class OptionalTest {
          */
 
         // 创建空的Optional对象
-        Optional.empty();
+        Optional<Object> empty = Optional.empty();
 
         // 使用非null值创建Optional对象
         Optional.of("zhangxiaoxi");

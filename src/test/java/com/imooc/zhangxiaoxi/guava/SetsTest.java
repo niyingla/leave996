@@ -21,11 +21,9 @@ public class SetsTest {
      * 反转 / 拆分
      */
 
-    private static final Set set1 =
-            Sets.newHashSet(1, 2);
+    private static final Set set1 = Sets.newHashSet(1, 2);
 
-    private static final Set set2 =
-            Sets.newHashSet(4);
+    private static final Set set2 = Sets.newHashSet(4);
 
     // 并集
     @Test
@@ -67,8 +65,7 @@ public class SetsTest {
     // 计算两个集合笛卡尔积
     @Test
     public void cartesianProduct() {
-        Set<List<Integer>> product =
-                Sets.cartesianProduct(set1, set2);
+        Set<List<Integer>> product = Sets.cartesianProduct(set1, set2);
 
         System.out.println(JSON.toJSONString(product));
     }

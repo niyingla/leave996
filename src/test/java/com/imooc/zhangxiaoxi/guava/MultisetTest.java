@@ -22,24 +22,17 @@ public class MultisetTest {
     @Test
     public void handle() {
         // multiset创建
-        Multiset<Character> multiset =
-                HashMultiset.create();
+        Multiset<Character> multiset = HashMultiset.create();
 
         // string 转换成 char 数组
         char[] chars = text.toCharArray();
 
         // 遍历数组，添加到multiset中
-        Chars.asList(chars)
-                .stream()
-                .forEach(charItem -> {
-                    multiset.add(charItem);
-                });
+        Chars.asList(chars).stream().forEach(charItem -> multiset.add(charItem));
 
-        System.out.println
-                ("size : " + multiset.size());
+        System.out.println("size : " + multiset.size());
 
-        System.out.println
-                ("count : " + multiset.count('人'));
+        System.out.println("count : " + multiset.count('人'));
 
     }
 }
