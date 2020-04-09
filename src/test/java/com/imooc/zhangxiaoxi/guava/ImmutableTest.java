@@ -2,6 +2,7 @@ package com.imooc.zhangxiaoxi.guava;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,14 +24,15 @@ public class ImmutableTest {
         list.add(2);
         list.add(3);
 
-        List<Integer> newList =
-                Collections.unmodifiableList(list);
+        List<Integer> newList = Collections.unmodifiableList(list);
 
         test(newList);
 
         System.out.println(newList);
     }
 
+
+    @Test
     public void immutable() {
         List<Integer> list = new ArrayList<Integer>();
 
@@ -42,18 +44,13 @@ public class ImmutableTest {
          * 构造不可变集合对象三种方式
          */
         // 通过已经存在的集合创建
-        ImmutableSet.copyOf(list);
+        ImmutableSet<Integer> immutable = ImmutableSet.copyOf(list);
 
         // 通过初始值，直接创建不可变集合
-        ImmutableSet immutableSet =
-                ImmutableSet.of(1, 2, 3);
+        ImmutableSet immutableSet = ImmutableSet.of(1, 2, 3);
 
         // 以builder方式创建
-        ImmutableSet.builder()
-                .add(1)
-                .addAll(Sets.newHashSet(2, 3))
-                .add(4)
-                .build();
+        ImmutableSet.builder().add(1).addAll(Sets.newHashSet(2, 3)).add(4).build();
 
     }
 
