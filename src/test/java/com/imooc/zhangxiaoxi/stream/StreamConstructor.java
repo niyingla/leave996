@@ -44,8 +44,7 @@ public class StreamConstructor {
         // TODO 此处替换为本地文件的地址全路径
         String filePath = "";
 
-        Stream<String> stream = Files.lines(
-                Paths.get(filePath));
+        Stream<String> stream = Files.lines(Paths.get(filePath));
 
         stream.forEach(System.out::println);
     }
@@ -60,8 +59,7 @@ public class StreamConstructor {
 
         Stream stream = Stream.generate(Math::random);
 
-        stream.limit(100)
-                .forEach(System.out::println);
+        stream.limit(100).forEach(System.out::println);
 
     }
 

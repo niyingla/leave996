@@ -22,11 +22,9 @@ public class NewFileCopyTest {
 
         // 初始化输入/输出流对象
         try (
-                FileInputStream originalFileInputStream =
-                        new FileInputStream(originalUrl);
+                FileInputStream originalFileInputStream = new FileInputStream(originalUrl);
 
-                FileOutputStream targetFileOutputStream =
-                        new FileOutputStream(targetUrl);
+                FileOutputStream targetFileOutputStream = new FileOutputStream(targetUrl);
         ) {
 
             int content;

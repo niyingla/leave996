@@ -27,11 +27,8 @@ public class StreamOperator {
     @Test
     public void filterTest() {
         list.stream()
-
                 // filter
-                .filter(sku ->
-                        SkuCategoryEnum.BOOKS
-                                .equals(sku.getSkuCategory()))
+                .filter(sku -> SkuCategoryEnum.BOOKS.equals(sku.getSkuCategory()))
 
                 .forEach(item ->
                         System.out.println(
@@ -45,10 +42,8 @@ public class StreamOperator {
     @Test
     public void mapTest() {
         list.stream()
-
                 // map
                 .map(sku -> sku.getSkuName())
-
                 .forEach(item ->
                         System.out.println(
                                 JSON.toJSONString(
@@ -78,14 +73,9 @@ public class StreamOperator {
     @Test
     public void peek() {
         list.stream()
-
                 // peek
-                .peek(sku -> System.out.println(sku.getSkuName()))
-
-                .forEach(item ->
-                        System.out.println(
-                                JSON.toJSONString(
-                                        item, true)));
+            .peek(sku -> System.out.println(sku.getSkuName()))
+            .forEach(item -> System.out.println(JSON.toJSONString(item, true)));
     }
 
     /**
@@ -94,16 +84,11 @@ public class StreamOperator {
     @Test
     public void sortTest() {
         list.stream()
-
-                .peek(sku -> System.out.println(sku.getSkuName()))
-
-                //sort
-                .sorted(Comparator.comparing(Sku::getTotalPrice))
-
-                .forEach(item ->
-                        System.out.println(
-                                JSON.toJSONString(
-                                        item, true)));
+            .peek(sku -> System.out.println(sku.getSkuName()))
+            //sort
+            .sorted(Comparator.comparing(Sku::getTotalPrice))
+            .forEach(item -> System.out.println(
+                JSON.toJSONString(item, true)));
     }
 
     /**
@@ -113,14 +98,9 @@ public class StreamOperator {
     public void distinctTest() {
         list.stream()
                 .map(sku -> sku.getSkuCategory())
-
                 // distinct
                 .distinct()
-
-                .forEach(item ->
-                        System.out.println(
-                                JSON.toJSONString(
-                                        item, true)));
+                .forEach(item -> System.out.println(JSON.toJSONString(item, true)));
 
 
     }
@@ -131,12 +111,9 @@ public class StreamOperator {
     @Test
     public void skipTest() {
         list.stream()
-
                 .sorted(Comparator.comparing(Sku::getTotalPrice))
-
                 // skip
                 .skip(3)
-
                 .forEach(item ->
                         System.out.println(
                                 JSON.toJSONString(
@@ -150,12 +127,9 @@ public class StreamOperator {
     public void limitTest() {
         list.stream()
                 .sorted(Comparator.comparing(Sku::getTotalPrice))
-
                 .skip(2 * 3)
-
                 // limit
                 .limit(3)
-
                 .forEach(item ->
                         System.out.println(
                                 JSON.toJSONString(
@@ -183,12 +157,9 @@ public class StreamOperator {
     @Test
     public void anyMatchTest() {
         boolean match = list.stream()
-
                 .peek(sku -> System.out.println(sku.getSkuName()))
-
                 // anyMatch
                 .anyMatch(sku -> sku.getTotalPrice() > 100);
-
         System.out.println(match);
     }
 
@@ -198,13 +169,12 @@ public class StreamOperator {
     @Test
     public void noneMatchTest() {
         boolean match = list.stream()
-
                 .peek(sku -> System.out.println(sku.getSkuName()))
-
                 // noneMatch
                 .noneMatch(sku -> sku.getTotalPrice() > 10_000);
 
         System.out.println(match);
+        System.out.println(10000==10000);
     }
 
     /**

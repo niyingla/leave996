@@ -22,13 +22,9 @@ public class StreamCollector {
 
         List<Sku> list = CartService.getCartSkuList();
 
-        List<Sku> result = list.stream()
-                .filter(sku -> sku.getTotalPrice() > 100)
+        List<Sku> result = list.stream().filter(sku -> sku.getTotalPrice() > 100).collect(Collectors.toList());
 
-                .collect(Collectors.toList());
-
-        System.out.println(
-                JSON.toJSONString(result, true));
+        System.out.println(JSON.toJSONString(result, true));
 
     }
 
@@ -40,28 +36,21 @@ public class StreamCollector {
         List<Sku> list = CartService.getCartSkuList();
 
         // Map<分组条件，结果集合>
-        Map<Object, List<Sku>> group = list.stream()
-                .collect(
-                        Collectors.groupingBy(
-                                sku -> sku.getSkuCategory()));
+        Map<Object, List<Sku>> group = list.stream().collect(Collectors.groupingBy(Sku::getSkuCategory));
 
-        System.out.println(
-                JSON.toJSONString(group, true));
+        System.out.println(JSON.toJSONString(group, true));
     }
 
     /**
-     * 分区
+     * 分区 true or false
      */
     @Test
     public void partition() {
         List<Sku> list = CartService.getCartSkuList();
 
-        Map<Boolean, List<Sku>> partition = list.stream()
-                .collect(Collectors.partitioningBy(
-                        sku -> sku.getTotalPrice() > 100));
+        Map<Boolean, List<Sku>> partition = list.stream().collect(Collectors.partitioningBy(sku -> sku.getTotalPrice() > 100));
 
-        System.out.println(
-                JSON.toJSONString(partition, true));
+        System.out.println(JSON.toJSONString(partition, true));
     }
 
 }

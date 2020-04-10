@@ -22,19 +22,17 @@ public class FileCopyTest {
 
         // 定义输入路径和输出路径
         String originalUrl = "lib/FileCopyTest.java";
-        String targetUrl = "targetTest/target.txt";
 
+        String targetUrl = "targetTest/target.txt";
         // 声明文件输入流，文件输出流
         FileInputStream originalFileInputStream = null;
         FileOutputStream targetFileOutputStream = null;
 
         try {
             // 实例化文件流对象
-            originalFileInputStream =
-                    new FileInputStream(originalUrl);
+            originalFileInputStream = new FileInputStream(originalUrl);
 
-            targetFileOutputStream =
-                    new FileOutputStream(targetUrl);
+            targetFileOutputStream = new FileOutputStream(targetUrl);
 
             // 读取的字节信息
             int content;
