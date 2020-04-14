@@ -114,12 +114,8 @@ public class CartService {
 
             // 如果根据商品类型判断，sku类型与输入类型比较
             // 如果根据商品总价判断，sku总价与输入总价比较
-            if (
-                    (categoryOrPrice
-                            && category.equals(sku.getSkuCategory())
-                    ||
-                    (!categoryOrPrice
-                            && sku.getTotalPrice() > totalPrice))) {
+            if ((categoryOrPrice && category.equals(sku.getSkuCategory())
+                    || (!categoryOrPrice && sku.getTotalPrice() > totalPrice))) {
                 result.add(sku);
             }
         }
@@ -133,10 +129,8 @@ public class CartService {
      * @param predicate - 不同的Sku判断标准策略
      * @return
      */
-    public static List<Sku> filterSkus(
-            List<Sku> cartSkuList, SkuPredicate predicate) {
-
-        List<Sku> result = new ArrayList<Sku>();
+    public static List<Sku> filterSkus(List<Sku> cartSkuList, SkuPredicate predicate) {
+        List<Sku> result = new ArrayList<>();
         for (Sku sku: cartSkuList) {
             // 根据不同的Sku判断标准策略，对Sku进行判断
             if (predicate.test(sku)) {

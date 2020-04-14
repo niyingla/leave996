@@ -12,11 +12,9 @@ public class Version4Test {
         List<Sku> cartSkuList = CartService.getCartSkuList();
 
         // 过滤商品总价大于2000的商品
-        List<Sku> result = CartService.filterSkus(
-                cartSkuList, new SkuTotalPricePredicate());
+        List<Sku> result = CartService.filterSkus(cartSkuList, new SkuTotalPricePredicate());
 
-        System.out.println(JSON.toJSONString(
-                result, true));
+        System.out.println(JSON.toJSONString(result, true));
     }
 
 }
